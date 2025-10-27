@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "I Code Therefore I Am - T-Shirt",
+    "price": 19.99,
+    "category": "Merch",
+    "type": "T-Shirt",
+    "image_url": "/public/assets/products/tshirt_01.jpg",
+    "description": "Premium cotton t-shirt with a classic programming philosophy print.",
+    "tags": ["cotton", "black", "coding"]
+  },
+  {
+    "id": 2,
+    "name": "CSS Grid Master - Hoodie",
+    "price": 49.99,
+    "category": "Merch",
+    "type": "Hoodie",
+    "image_url": "/public/assets/products/hoodie_01.jpg",
+    "description": "Warm hoodie for those long coding nights. Featuring a stylish CSS grid pattern.",
+    "tags": ["warm", "hoodie", "css"]
+  },
+  {
+    "id": 3,
+    "name": "Minimal Portfolio Template",
+    "price": 29.00,
+    "category": "Digital",
+    "type": "Template",
+    "image_url": "/public/assets/products/template_01.jpg",
+    "description": "Clean, responsive HTML/CSS template for developers to showcase their projects.",
+    "tags": ["html", "css", "template"]
+  }
+]

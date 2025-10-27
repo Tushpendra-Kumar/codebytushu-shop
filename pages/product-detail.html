@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="product-title-tag">Product Details | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/product-detail.css"> 
+</head>
+<body>
+    <header class="main-header">
+        <h1>CodeByTushu Shop</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/merch.html">Merch</a>
+            <a href="/digital.html">Digital</a>
+            <a href="/courses.html">Courses</a>
+            <a href="/cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+    <main class="product-detail-container">
+        
+        <section class="loading-state" id="loading-state">
+            <p>Loading product details...</p>
+        </section>
+        
+        <section class="product-content" id="product-content" style="display: none;">
+            
+            <div class="product-gallery">
+                <img id="main-product-image" src="" alt="Product Image">
+            </div>
+
+            <div class="product-info-panel">
+                <h1 id="product-name"></h1>
+                <p class="product-price" id="product-price"></p>
+                
+                <div class="options">
+                    <label for="size-selector">Select Size:</label>
+                    <select id="size-selector">
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">Extra Large</option>
+                    </select>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn-primary large" id="add-to-cart-btn">Add to Cart</button>
+                    <button class="btn-secondary large">Buy Now</button>
+                </div>
+
+                <div class="product-description-box">
+                    <h2>Product Description</h2>
+                    <p id="product-description"></p>
+                    
+                    <h3>Features:</h3>
+                    <ul id="product-features"></ul>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
+    </footer>
+
+    <script **type="module"** src="/src/js/main.js"></script> 
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch Shop | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/shop-merch.css"> 
+</head>
+<body>
+    <header class="main-header">
+        <h1>CodeByTushu Shop</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/merch.html">Merch</a>
+            <a href="/digital.html">Digital</a>
+            <a href="/courses.html">Courses</a>
+            <a href="/cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+    <main class="merch-container">
+        <aside class="sidebar-filters">
+            <h2>Filter Products</h2>
+            <div id="type-filters">
+                <button data-filter="all" class="active">All Merch</button>
+                <button data-filter="T-Shirt">T-Shirts</button>
+                <button data-filter="Hoodie">Hoodies</button>
+            </div>
+        </aside>
+
+        <section class="product-grid" id="product-grid">
+            <h3 class="loading-message">Loading Products...</h3>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
+    </footer>
+
+    <script src="/src/js/filters.js"></script>
+</body>
+</html>

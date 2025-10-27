@@ -1,0 +1,20 @@
+[
+  {
+    "id": 101,
+    "name": "The Ultimate JavaScript Bootcamp",
+    "price": 199.00,
+    "type": "Course",
+    "duration": "40 hours",
+    "level": "Intermediate",
+    "description": "Master modern JavaScript from ES6 to Async/Await in this comprehensive course."
+  },
+  {
+    "id": 102,
+    "name": "1-on-1 Career Mentorship (1 Hr)",
+    "price": 99.00,
+    "type": "Mentorship",
+    "duration": "1 hour",
+    "level": "All",
+    "description": "Personalized guidance on your coding career path and project reviews."
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "codebytushu-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tushpendra-Kumar/codebytushu-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tushpendra-Kumar/codebytushu-shop/issues"
+  },
+  "homepage": "https://github.com/Tushpendra-Kumar/codebytushu-shop#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
