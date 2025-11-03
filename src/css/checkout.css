@@ -1,0 +1,76 @@
+/* src/css/checkout.css */
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.checkout-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.shipping-details {
+    flex: 2; /* Zyada jagah do form ko */
+}
+
+.order-summary-checkout {
+    flex: 1; /* Kam jagah do summary ko */
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    height: fit-content;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Summary Styles (cart.css se similar) */
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.total-line {
+    font-size: 1.2em;
+    font-weight: bold;
+    border-top: 2px solid #ccc;
+    margin-top: 10px;
+    padding-top: 15px;
+}
+
+.payment-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.payment-section .btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: #e74c3c; /* Payment button ko alag color do */
+    font-size: 1.2em;
+}

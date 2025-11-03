@@ -19,26 +19,35 @@
             <a href="/cart.html">🛒 Cart</a>
         </nav>
     </header>
-
+    
     <main class="merch-container">
-        <aside class="sidebar-filters">
-            <h2>Filter Products</h2>
-            <div id="type-filters">
-                <button data-filter="all" class="active">All Merch</button>
-                <button data-filter="T-Shirt">T-Shirts</button>
-                <button data-filter="Hoodie">Hoodies</button>
-            </div>
-        </aside>
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search products by name or category...">
+        </div>
 
-        <section class="product-grid" id="product-grid">
-            <h3 class="loading-message">Loading Products...</h3>
-        </section>
+        <div class="shop-layout"> 
+            
+            <aside class="sidebar-filters">
+                <h2>Filter Products</h2>
+                <div id="type-filters">
+                    <button data-filter="all" class="active">All Merch</button>
+                    <button data-filter="T-Shirt">T-Shirts</button>
+                    <button data-filter="Hoodie">Hoodies</button>
+                </div>
+            </aside>
+
+            <section class="product-grid" id="product-grid">
+                <h3 class="loading-message">Loading Products...</h3>
+            </section>
+
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
     </footer>
 
-    <script src="/src/js/filters.js"></script>
+    <script type="module" src="/src/js/main.js"></script> 
 </body>
 </html>

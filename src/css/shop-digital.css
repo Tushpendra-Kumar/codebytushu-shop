@@ -1,3 +1,86 @@
+/* src/css/shop-digital.css */
+/* Yeh shop-merch.css jaisa hi hoga, bas thode colors ya fonts badal sakte ho */
+
+:root {
+    --primary-color: #007185; 
+    --accent-color: #39cc0c; /* Digital ke liye green-ish shade */
+    --text-color: #111;
+    --light-grey: #f0f0f0;
+    --card-bg: #fff;
+}
+
+body {
+    background-color: var(--light-grey);
+}
+
+.digital-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    gap: 30px;
+}
+
+/* Sidebar & Filters (Same as Merch) */
+.sidebar-filters {
+    width: 250px;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    height: fit-content;
+}
+
+#type-filters button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: left;
+}
+#type-filters button.active {
+    background: var(--accent-color); /* Green active color */
+    color: white;
+    border-color: var(--accent-color);
+    font-weight: bold;
+}
+
+.product-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Product Card Styles (Same as Merch) */
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.product-card {
+    background: var(--card-bg);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+/* ... rest of the card styles from shop-merch.css (img, card-info, etc.) ... */
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+}
+.btn-primary {
+    background-color: var(--accent-color); /* Green button */
+    color: var(--text-color);
+    border: 1px solid #33aa00;
+}
+
 /* src/css/shop-merch.css */
 /* Yahaan sirf product grid aur card ke zaroori styles de raha hoon */
 

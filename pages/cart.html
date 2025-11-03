@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/cart.css"> 
+</head>
+<body>
+    <header class="main-header">
+        <h1>CodeByTushu Shop</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/merch.html">Merch</a>
+            <a href="/digital.html">Digital</a>
+            <a href="/courses.html">Courses</a>
+            <a href="/cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <section class="cart-items-section">
+            <h2>Your Shopping Cart</h2>
+            <div id="cart-items-list">
+                <p>Loading cart...</p>
+            </div>
+        </section>
+
+        <aside class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-line">
+                <span>Shipping:</span>
+                <span>Calculated at checkout</span>
+            </div>
+            <div class="summary-line total-line">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+
+            <button class="btn-primary" onclick="window.location.href='/checkout.html'">Proceed to Checkout</button>
+            <p class="continue-shopping">
+                &larr; <a href="/merch.html">Continue Shopping</a>
+            </p>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="/src/js/main.js"></script> 
+</body>
+</html>

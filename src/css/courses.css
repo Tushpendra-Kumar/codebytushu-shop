@@ -1,0 +1,82 @@
+/* src/css/courses.css */
+:root {
+    --primary-color: #007185; 
+    --course-color: #4CAF50; /* Green theme for courses */
+    --text-color: #111;
+    --light-grey: #f0f0f0;
+    --card-bg: #fff;
+}
+
+.courses-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.courses-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--course-color);
+}
+
+.courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background: var(--card-bg);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.course-card h3 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+.course-details {
+    margin: 15px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.course-details span {
+    display: inline-block;
+    background: #f0f8ff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.course-price {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--course-color);
+    margin: 15px 0;
+}
+
+.course-card .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--course-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}

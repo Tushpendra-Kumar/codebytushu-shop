@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/checkout.css"> 
+</head>
+<body>
+    <header class="main-header">
+        <h1>CodeByTushu Shop</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <h2>Secure Checkout</h2>
+        
+        <div class="checkout-layout">
+            
+            <section class="shipping-details">
+                <h3>1. Shipping Information</h3>
+                <form id="shipping-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    </form>
+            </section>
+
+            <aside class="order-summary-checkout">
+                <h3>2. Order Summary</h3>
+                <div id="checkout-items-list">
+                    <p>Loading items from cart...</p>
+                </div>
+
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="checkout-subtotal">$0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Shipping:</span>
+                    <span id="checkout-shipping">$0.00</span>
+                </div>
+                <div class="summary-line total-line">
+                    <span>Grand Total:</span>
+                    <span id="checkout-grand-total">$0.00</span>
+                </div>
+
+                <section class="payment-section">
+                    <h3>3. Payment (Placeholder)</h3>
+                    <p>Payment integration is a complex step and is currently a **placeholder**.</p>
+                    <button class="btn-primary" onclick="alert('Proceeding to dummy payment...');" disabled>Complete Order (Dummy)</button>
+                    <p class="security-info">We use secure payment methods.</p>
+                </section>
+            </aside>
+
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="/src/js/checkout.js"></script> 
+</body>
+</html>

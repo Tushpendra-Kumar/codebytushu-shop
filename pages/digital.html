@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Products | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/shop-digital.css"> 
+</head>
+<body>
+    <header class="main-header">
+        <h1>CodeByTushu Shop</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/merch.html">Merch</a>
+            <a href="/digital.html">Digital</a>
+            <a href="/courses.html">Courses</a>
+            <a href="/cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+    
+    <main class="digital-container">
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search products by name or category...">
+        </div>
+        
+        <div class="shop-layout">
+
+            <aside class="sidebar-filters">
+                <h2>Filter Digital Items</h2>
+                <div id="type-filters">
+                    <button data-filter="all" class="active">All Digital</button>
+                    <button data-filter="Template">Templates</button>
+                    <button data-filter="E-book">E-books</button>
+                    <button data-filter="Utility">Utilities</button>
+                </div>
+            </aside>
+
+            <section class="product-grid" id="product-grid">
+                <h3 class="loading-message">Loading Digital Products...</h3>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="/src/js/main.js"></script> 
+</body>
+</html>

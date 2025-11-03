@@ -1,4 +1,4 @@
-// src/js/filters.js
+// src/js/filters.js - Sirf Merch products load karega
 
 const productGrid = document.getElementById('product-grid');
 const typeFilters = document.getElementById('type-filters');
@@ -7,9 +7,10 @@ let allProducts = [];
 
 // Function: Single Product Card ka HTML banana
 function createProductCard(product) {
-    if (product.category !== 'Merch') return '';
+    // 🛑 CHECK: Yahaan 'Merch' category check ho rahi hai
+    if (product.category !== 'Merch') return ''; 
 
-    // Product ID ko PDP tak le jaane ke liye link banao
+    // Add to Cart button mein abhi sirf alert hai, kyuki yeh Merch page hai
     const productLink = `/product-detail.html?id=${product.id}`; 
 
     return `
@@ -22,7 +23,7 @@ function createProductCard(product) {
                     <p class="product-type">${product.type}</p>
                 </div>
                 <div class="card-actions">
-                    <button class="btn-primary" onclick="event.preventDefault(); alert('Add to Cart for ${product.name}');">Add to Cart</button>
+                    <button class="btn-primary" onclick="event.preventDefault(); window.location.href='${productLink}'">Add to Cart</button>
                     <button class="btn-secondary" onclick="event.preventDefault(); window.location.href='${productLink}'">Quick View</button>
                 </div>
             </div>
@@ -30,15 +31,14 @@ function createProductCard(product) {
     `;
 }
 
-// Function: Products ko Grid mein Render karna
+// Function: Products ko Grid mein Render karna (Same)
 function renderProducts(productsToRender) {
     productGrid.innerHTML = '';
-    
+    // ... (rest of the renderProducts function) ...
     if (productsToRender.length === 0) {
         productGrid.innerHTML = '<p class="no-results">Sorry, no products found for this filter.</p>';
         return;
     }
-
     productsToRender.forEach(product => {
         productGrid.innerHTML += createProductCard(product);
     });
@@ -53,6 +53,7 @@ async function fetchProducts() {
         }
         const data = await response.json();
         
+        // 🛑 FILTER: Yahaan sirf 'Merch' products filter ho rahe hain
         allProducts = data.filter(p => p.category === 'Merch');
         
         renderProducts(allProducts); 
@@ -63,7 +64,7 @@ async function fetchProducts() {
     }
 }
 
-// Function: Filters par click handle karna
+// Function: Filters par click handle karna (Same)
 function handleFilterClick(event) {
     const button = event.target.closest('button');
     if (!button) return;
@@ -83,8 +84,67 @@ function handleFilterClick(event) {
     renderProducts(filteredList);
 }
 
-// Event Listeners
+// Event Listeners and Initialization
 typeFilters.addEventListener('click', handleFilterClick);
-
-// Initialization: Page load hote hi products fetch karna
 fetchProducts();
+
+// src/js/filters.js
+
+// ... (existing imports, fetchProducts, etc.) ...
+
+// Global search state
+let currentSearchTerm = '';
+
+// Function to combine search and filter logic
+export function handleSearchAndFilter(allProducts) {
+    let filtered = allProducts;
+    
+    // 1. Filtering (Existing Logic)
+    if (currentFilterCategory !== 'All Merch' && currentFilterCategory !== 'All Digital') {
+        filtered = filtered.filter(p => p.category === currentFilterCategory);
+    }
+    
+    // 2. Searching (NEW LOGIC)
+    if (currentSearchTerm) {
+        const lowerCaseSearch = currentSearchTerm.toLowerCase();
+        filtered = filtered.filter(p => 
+            p.name.toLowerCase().includes(lowerCaseSearch) ||
+            p.description.toLowerCase().includes(lowerCaseSearch) ||
+            p.category.toLowerCase().includes(lowerCaseSearch)
+        );
+    }
+
+    renderProducts(filtered);
+}
+
+// Function to initialize search input
+export function initSearchListener(allProducts) {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearchTerm = e.target.value;
+            // Search field change hote hi filtering aur rendering shuru karo
+            handleSearchAndFilter(allProducts); 
+        });
+    }
+}
+
+// *** UPDATE ***: initFilters function ko update karo
+// Ab har filter click par search bhi apply hona chahiye
+export function initFilters(allProducts) {
+    // ... (existing filter button logic) ...
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // ... (existing filter category update logic) ...
+            
+            // Filter update hone ke baad Search aur Filter dono apply karo
+            handleSearchAndFilter(allProducts); 
+        });
+    });
+    
+    // Page load par bhi Search aur Filter apply karo
+    handleSearchAndFilter(allProducts);
+}
+
+// ** DON'T FORGET **: Yeh function ko products.js ya main.js mein call karna
+// (Jahaan tum products fetch karte ho)

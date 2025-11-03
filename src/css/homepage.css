@@ -1,0 +1,71 @@
+/* src/css/homepage.css */
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(to right, #2c3e50, #34495e); /* Dark coding theme */
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+.hero-btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    margin: 0 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.hero-section .btn-primary {
+    background-color: #e67e22; /* Orange accent */
+    color: white;
+}
+.hero-section .btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+/* FEATURED SECTION */
+.featured-section {
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #34495e;
+}
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Reusing .product-card styles (Same as shop-merch.css/shop-digital.css) */
+.featured-grid .product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.featured-grid .product-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+}
+/* ... (You can copy the basic card styles from shop-merch.css) ... */
