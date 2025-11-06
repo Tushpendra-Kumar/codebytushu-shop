@@ -1,0 +1,179 @@
+/* src/css/global.css - CodeByTushu E-commerce Global Styles */
+
+/* 1. Variables (Colors) */
+:root {
+    --primary-color: #007bff; /* Code/Tech Blue */
+    --primary-dark: #0056b3;
+    --secondary-color: #6c757d; /* Gray */
+    --accent-color: #ffc107; /* Highlight Yellow */
+    --background-light: #f8f9fa; /* Light Gray Background */
+    --text-dark: #212529;
+    --text-light: #ffffff;
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Global Resets and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+main {
+    padding-top: 80px; /* Header space ke liye */
+    min-height: 80vh;
+}
+
+/* 3. Links and Buttons */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Primary Button Style */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+}
+
+/* Secondary Button Style */
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #e9ecef;
+    color: var(--text-dark);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #dee2e6;
+}
+
+/* 4. Form Elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* 5. Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    padding: 20px;
+    border: 1px solid red;
+    background-color: #ffeaea;
+    border-radius: 5px;
+}
+
+.loading-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    padding: 50px 0;
+}
+
+/* 6. Footer Styles (General) */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: var(--text-dark);
+    color: var(--background-light);
+    border-top: 3px solid var(--primary-color);
+}
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffda6a;
+}
+
+/* 7. Shop Layout (Sidebar + Grid Common Styling) */
+.shop-layout {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.sidebar-filters {
+    flex: 0 0 250px; /* Fixed width sidebar */
+    background: var(--text-light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    height: fit-content;
+}
+.product-grid {
+    flex: 1; /* Grid takes remaining space */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}

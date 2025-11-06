@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success! | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 40px;
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--primary-color);
+        }
+        .success-container h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .success-container p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .success-container .btn-primary {
+            padding: 12px 30px;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        </header>
+
+    <main>
+        <div class="success-container">
+            <h2>Order Placed Successfully! 🎉</h2>
+            <p>Thank you for shopping with CodeByTushu. Your order details have been sent to your email.</p>
+            <p>Order ID: **#CBTU${Math.floor(Math.random() * 9000 + 1000)}** (Demo)</p>
+            <button class="btn-primary" onclick="window.location.href='/'">Go back to Home</button>
+        </div>
+    </main>
+    
+    <footer>
+    <p>&copy; 2025 CodeByTushu. All rights reserved. | <a href="/contact.html">Contact Us</a></p>
+</footer>
+</body>
+</html>

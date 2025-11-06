@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CodeByTushu</title>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/contact.css"> </head>
+<body>
+    <header class="main-header">
+        <h1>CodeByTushu Shop</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/merch.html">Merch</a>
+            <a href="/digital.html">Digital</a>
+            <a href="/courses.html">Courses</a>
+            <a href="/cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <h2>Get in Touch with CodeByTushu</h2>
+        <div class="contact-layout">
+            
+            <section class="contact-info">
+                <h3>Our Details</h3>
+                <p><strong>Email:</strong> support@codebytushu.com</p>
+                <p><strong>Phone:</strong> +91 7055072196 (Mon-Fri, 10am - 6pm IST)</p>
+                <p><strong>Address:</strong> CodeByTushu HQ, Tech Hub, Noida, India</p>
+                
+                <h3 style="margin-top: 30px;">Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">Twitter</a> | 
+                    <a href="#" target="_blank">Instagram</a> | 
+                    <a href="#" target="_blank">YouTube</a>
+                </div>
+            </section>
+            
+            <section class="contact-form-section">
+                <h3>Send us a Message</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="c-name">Your Name</label>
+                        <input type="text" id="c-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-email">Your Email</label>
+                        <input type="email" id="c-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-subject">Subject</label>
+                        <input type="text" id="c-subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-message">Message</label>
+                        <textarea id="c-message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 CodeByTushu. All rights reserved. <a href="/contact.html">Contact Us</a></p>
+    </footer>
+    
+    <script>
+        // Simple form submission placeholder
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message, ' + document.getElementById('c-name').value + '. We will get back to you shortly!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

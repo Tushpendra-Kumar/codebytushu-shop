@@ -41,7 +41,7 @@
                         <label for="city">City</label>
                         <input type="text" id="city" required>
                     </div>
-                    </form>
+                </form>
             </section>
 
             <aside class="order-summary-checkout">
@@ -64,9 +64,26 @@
                 </div>
 
                 <section class="payment-section">
-                    <h3>3. Payment (Placeholder)</h3>
-                    <p>Payment integration is a complex step and is currently a **placeholder**.</p>
-                    <button class="btn-primary" onclick="alert('Proceeding to dummy payment...');" disabled>Complete Order (Dummy)</button>
+                    <h3>3. Payment (Final Step)</h3>
+                    <p>Click below to complete your order. (Cart will be cleared)</p>
+                    
+                    <button class="btn-primary" 
+                            onclick="
+                                // Form Validation (Simple check)
+                                const form = document.getElementById('shipping-form');
+                                if (!form.checkValidity()) {
+                                    alert('Please fill out all required shipping details!');
+                                    return; // Agar form invalid hai, toh aage mat jao
+                                }
+                                
+                                // LocalStorage se cart ko clear karo
+                                localStorage.removeItem('codebytushu_cart'); 
+                                
+                                // Success page par redirect karo
+                                window.location.href='/order-success.html';
+                            ">
+                        Place Order & Pay
+                    </button>
                     <p class="security-info">We use secure payment methods.</p>
                 </section>
             </aside>
@@ -75,8 +92,8 @@
     </main>
     
     <footer>
-        <p>&copy; 2025 CodeByTushu. All rights reserved.</p>
-    </footer>
+    <p>&copy; 2025 CodeByTushu. All rights reserved. | <a href="/contact.html">Contact Us</a></p>
+</footer>
 
     <script type="module" src="/src/js/checkout.js"></script> 
 </body>
