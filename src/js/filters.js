@@ -1,10 +1,15 @@
 // src/js/filters.js - Merch Products ko handle karega
 
+// 🛑 IMPORTANT: Yeh line Merch shop ke liye zaroori hai agar aap Add to Cart button add karna chahte hain
+// import { addToCart } from './cart.js'; 
+
 const productGrid = document.getElementById('product-grid');
 const typeFilters = document.getElementById('type-filters');
+const searchInput = document.getElementById('search-input'); // Search input ko yahan define karo
+
 let allMerchProducts = [];
-let currentFilterType = 'all'; // Filter state maintain karo
-let currentSearchTerm = ''; // Search state maintain karo
+let currentFilterType = 'all'; 
+let currentSearchTerm = ''; 
 
 // Function: Single Product Card ka HTML banana
 function createProductCard(product) {
@@ -20,14 +25,14 @@ function createProductCard(product) {
                 </div>
                 <div class="card-actions">
                     <button class="btn-primary" onclick="event.preventDefault(); window.location.href='${productLink}'">Details</button>
-                    <button class="btn-secondary" onclick="event.preventDefault(); alert('Quick View functionality can be added later!')">Quick View</button>
+                    <button class="btn-secondary" onclick="event.preventDefault(); alert('Product ${product.name} added to cart!');">Add to Cart</button>
                 </div>
             </div>
         </a>
     `;
 }
 
-// Function: Products ko Grid mein Render karna
+// ... (renderProducts, applyFiltersAndSearch, handleFilterClick functions are fine) ...
 function renderProducts(productsToRender) {
     productGrid.innerHTML = '';
     if (productsToRender.length === 0) {
@@ -39,11 +44,10 @@ function renderProducts(productsToRender) {
     });
 }
 
-// Function: Search aur Filter Logic ko combine karna
 function applyFiltersAndSearch() {
     let filtered = allMerchProducts;
     
-    // 1. Filter by Type (T-Shirt, Hoodie, All)
+    // 1. Filter by Type
     if (currentFilterType !== 'all') {
         filtered = filtered.filter(p => p.type === currentFilterType);
     }
@@ -61,40 +65,30 @@ function applyFiltersAndSearch() {
     renderProducts(filtered);
 }
 
-// Function: Filters par click handle karna
 function handleFilterClick(event) {
     const button = event.target.closest('button');
     if (!button) return;
 
-    // Active class update
     typeFilters.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
-    // Filter state update
     currentFilterType = button.getAttribute('data-filter');
     
-    // Logic apply karo
     applyFiltersAndSearch();
 }
-
-// Function: Search input handle karna
-function handleSearchInput() {
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        // Input event listener lagao
-        searchInput.addEventListener('input', (e) => {
-            currentSearchTerm = e.target.value.trim();
-            applyFiltersAndSearch(); 
-        });
-    }
-}
+// ... (handleSearchInput function ko initMerchShop mein hi call karte hain) ...
 
 
 // Function: API se data fetch karna aur sab initialize karna (Exported function)
 export async function initMerchShop() {
     // Search listener ko pehle set karo
-    handleSearchInput();
-    
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearchTerm = e.target.value.trim();
+            applyFiltersAndSearch(); 
+        });
+    }
+
     try {
         const response = await fetch('/api/products');
         if (!response.ok) throw new Error('Network response was not ok');
@@ -114,7 +108,7 @@ export async function initMerchShop() {
     } catch (error) {
         console.error("Error fetching data:", error);
         if (productGrid) {
-            productGrid.innerHTML = '<h3 class="error-message">Could not load products. Please check server connection.</h3>';
+            productGrid.innerHTML = '<h3 class="error-message">Could not load products. Please check server connection and products.json data.</h3>';
         }
     }
 }

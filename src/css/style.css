@@ -1,0 +1,126 @@
+/* src/css/style.css - GLOBAL STYLING AND UTILITIES */
+
+/* 1. Root Variables for Easy Customization */
+:root {
+    /* Colors */
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --accent-color: #ffc107; /* Yellow/Gold for highlights */
+    --primary-dark: #0056b3;
+    --text-dark: #333;
+    --text-light: #f8f9fa;
+    --background-light: #ffffff;
+    
+    /* Typography */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-size-base: 16px;
+
+    /* Layout & Spacing */
+    --max-width: 1200px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    
+    /* Components */
+    --border-radius: 8px;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Base Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* 3. Main Content Wrapper */
+main {
+    padding-top: 80px; /* Header ki height ke liye padding */
+    min-height: 100vh; /* Footer ko bottom mein rakhne ke liye */
+}
+
+/* 4. Navigation (Example styling for a header) */
+header {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    margin-left: var(--spacing-md);
+    font-weight: bold;
+}
+.nav-links a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+/* 5. Utility Classes (Buttons) - Used in Merch/Digital Cards */
+.btn-primary, .btn-secondary {
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+    text-align: center;
+    text-decoration: none; /* A tag ke liye zaroori */
+}
+
+/* Global Primary Button (Can be overridden by shop-merch/digital.css) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Global Secondary Button */
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* 6. Footer Styling */
+footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    margin-top: var(--spacing-lg);
+}

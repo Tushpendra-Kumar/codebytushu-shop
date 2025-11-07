@@ -1,13 +1,16 @@
-// src/js/filters-digital.js - Updated code
+// src/js/filters-digital.js - Digital Products ko handle karega
 
-// product-grid aur search-input IDs sahi hain, no change:
+// 🛑 IMPORTANT: Yeh line Digital shop ke liye zaroori hai agar aap Add to Cart button add karna chahte hain
+// import { addToCart } from './cart.js'; 
+
 const productGrid = document.getElementById('product-grid'); 
-// 💡 Yahan change karo: 'type-filters-digital' ko 'type-filters' se replace karo
-const typeFilters = document.getElementById('type-filters'); // <-- **CORRECTED LINE**
+const typeFilters = document.getElementById('type-filters'); // Merch aur Digital dono same ID use kar rahe hain
+const searchInput = document.getElementById('search-input'); // Search input ko yahan define karo
+
 let allDigitalProducts = []; 
 let currentFilterType = 'all'; 
 let currentSearchTerm = ''; 
-// ... rest of the code is fine ...
+
 
 // Function: Single Product Card ka HTML banana
 function createDigitalProductCard(product) {
@@ -24,7 +27,7 @@ function createDigitalProductCard(product) {
                 </div>
                 <div class="card-actions">
                     <button class="btn-primary" onclick="event.preventDefault(); window.location.href='${productLink}'">Details</button>
-                    <button class="btn-secondary" onclick="event.preventDefault(); alert('Added ${product.name} to cart!'); addToCart(${JSON.stringify(product)}, 1, 'N/A')">Add to Cart</button>
+                    <button class="btn-secondary" onclick="event.preventDefault(); alert('Product ${product.name} added to cart!');">Add to Cart</button>
                 </div>
             </div>
         </a>
@@ -33,7 +36,6 @@ function createDigitalProductCard(product) {
 
 // Function: Products ko Grid mein Render karna
 function renderDigitalProducts(productsToRender) {
-    // Ye check zaroori hai
     if (!productGrid) return; 
 
     productGrid.innerHTML = '';
@@ -46,11 +48,11 @@ function renderDigitalProducts(productsToRender) {
     });
 }
 
-// Function: Search aur Filter Logic ko combine karna
+// Function: Search aur Filter Logic ko combine karna (applyDigitalFiltersAndSearch is fine)
 function applyDigitalFiltersAndSearch() {
     let filtered = allDigitalProducts;
     
-    // 1. Filter by Type (Template, E-book, Utility)
+    // 1. Filter by Type 
     if (currentFilterType !== 'all') {
         filtered = filtered.filter(p => p.type === currentFilterType);
     }
@@ -68,37 +70,29 @@ function applyDigitalFiltersAndSearch() {
     renderDigitalProducts(filtered);
 }
 
-// Function: Filters par click handle karna
+// Function: Filters par click handle karna (handleDigitalFilterClick is fine)
 function handleDigitalFilterClick(event) {
     const button = event.target.closest('button');
     if (!button || !typeFilters) return;
 
-    // Active class update
     typeFilters.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
-    // Filter state update
     currentFilterType = button.getAttribute('data-filter');
     
-    // Logic apply karo
     applyDigitalFiltersAndSearch();
 }
 
-// Function: Search input handle karna
-function handleDigitalSearchInput() {
-    const searchInput = document.getElementById('search-input');
+
+// Function: API se data fetch karna aur sab initialize karna (Exported function)
+export async function initDigitalShop() {
+    // Search listener ko pehle set karo
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             currentSearchTerm = e.target.value.trim();
             applyDigitalFiltersAndSearch(); 
         });
     }
-}
-
-
-// Function: API se data fetch karna aur sab initialize karna (Exported function)
-export async function initDigitalShop() {
-    handleDigitalSearchInput();
     
     try {
         const response = await fetch('/api/products');
@@ -119,7 +113,7 @@ export async function initDigitalShop() {
     } catch (error) {
         console.error("Error fetching Digital data:", error);
         if (productGrid) {
-            productGrid.innerHTML = '<h3 class="error-message">Could not load digital products. Please check server connection.</h3>';
+            productGrid.innerHTML = '<h3 class="error-message">Could not load digital products. Please check server connection and products.json data.</h3>';
         }
     }
 }

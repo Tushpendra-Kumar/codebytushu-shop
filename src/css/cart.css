@@ -1,126 +1,34 @@
-/* src/css/cart.css */
-:root {
-    --primary-color: #007185; 
-    --accent-color: #ff9900; 
-}
+/* src/css/cart.css - FINAL CODE (Flex-based Layout) */
 
-.cart-main-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-}
-.cart-main-container h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
-}
-
-.cart-layout {
-    display: flex;
-    gap: 30px;
-}
-
-/* Cart Items List */
-.cart-items-section {
-    flex: 2;
-}
-
-.cart-item {
-    display: grid;
-    grid-template-columns: 100px 2fr 1fr 1fr 100px; 
-    gap: 20px;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #f0f0f0;
-    background: #fff;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.cart-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.item-quantity input {
-    width: 60px;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.item-subtotal {
-    font-weight: bold;
-    color: #cc0c39;
-}
-
-.remove-btn {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-/* Cart Summary */
-.cart-summary-section {
-    flex: 1;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    height: fit-content;
-}
-
-.summary-line {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px dashed #eee;
-}
-
-.total-line {
-    font-size: 1.2em;
-    font-weight: bold;
-    border-top: 2px solid #333;
-    padding-top: 15px;
-    margin-top: 10px;
-}
-
-.checkout-btn {
-    display: block;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 1.1em;
-    text-decoration: none;
-    background-color: var(--accent-color);
-    color: #111;
-    border-radius: 4px;
-}
-
-/* src/css/cart.css */
+/* Cart Page Container */
 .cart-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
     display: flex;
-    gap: 30px;
+    gap: 30px; /* Space between items list and summary */
 }
 
+.cart-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* 1. Cart Items Section */
 .cart-items-section {
-    flex-grow: 1;
+    flex-grow: 1; /* Maximum available space lega */
 }
 
+/* Individual Cart Item */
 .cart-item {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #eee;
     padding: 15px 0;
+    justify-content: space-between; /* Items ko distribute karo */
 }
 
+/* Item details */
 .cart-item-info {
     flex-grow: 1;
 }
@@ -135,28 +43,59 @@
     font-size: 0.9em;
 }
 
-.cart-item-price, .cart-item-actions {
-    text-align: right;
-    width: 150px;
+/* Quantity input */
+.cart-item-quantity {
+    width: 100px;
+    text-align: center;
+}
+.cart-item-quantity input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
+/* Price and Actions */
 .cart-item-price {
+    width: 120px;
+    text-align: right;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Blue/Teal */
+}
+
+.cart-item-actions {
+    width: 100px;
+    text-align: right;
 }
 
 .remove-btn {
     background: none;
     border: none;
-    color: #cc0000;
+    color: #cc0000; /* Red for remove */
     cursor: pointer;
     font-size: 0.9em;
     text-decoration: underline;
+    transition: color 0.2s;
+}
+.remove-btn:hover {
+    color: #ff0000;
 }
 
-/* Order Summary */
+.empty-cart-message {
+    padding: 20px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+    background: #fcfcfc;
+}
+
+
+/* 2. Order Summary */
 .cart-summary {
     width: 300px;
+    flex-shrink: 0;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -174,7 +113,31 @@
 .total-line {
     font-size: 1.2em;
     font-weight: bold;
-    border-bottom: none;
+    border-top: 2px solid #333;
     padding-top: 15px;
-    color: #333;
+    margin-top: 10px;
+    color: var(--primary-color);
+}
+
+/* Checkout Button */
+.btn-primary {
+    /* Global styles se inherit hoga ya cart.css mein override ho sakta hai */
+    margin-top: 20px;
+    width: 100%;
+}
+.continue-shopping {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column; /* Mobile par stack vertically */
+    }
+    .cart-summary {
+        width: 100%;
+    }
 }

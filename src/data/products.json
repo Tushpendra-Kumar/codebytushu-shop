@@ -7,7 +7,8 @@
     "type": "T-Shirt",
     "image_url": "/public/assets/products/tshirt_01.jpg",
     "description": "Premium cotton t-shirt with a classic programming philosophy print.",
-    "tags": ["cotton", "black", "coding"]
+    "tags": ["cotton", "black", "coding"],
+    "is_digital": false  
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "type": "Hoodie",
     "image_url": "/public/assets/products/hoodie_01.jpg",
     "description": "Warm hoodie for those long coding nights. Featuring a stylish CSS grid pattern.",
-    "tags": ["warm", "hoodie", "css"]
+    "tags": ["warm", "hoodie", "css"],
+    "is_digital": false  
   },
   {
     "id": 3,
@@ -27,7 +29,7 @@
     "type": "Template",
     "image_url": "/public/assets/products/template_01.jpg",
     "description": "Clean, responsive HTML/CSS template for developers to showcase their projects.",
-    "tags": ["html", "css", "template"]
+    "tags": ["html", "css", "template"],
+    "is_digital": true   
   }
 ]
-

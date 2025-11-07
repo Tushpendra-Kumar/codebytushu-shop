@@ -114,5 +114,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// src/js/main.js
-const product = allProducts.find(p => p.id == productId);
