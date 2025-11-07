@@ -1,121 +1,31 @@
-/* src/css/shop-merch.css */
-/* Yahaan sirf product grid aur card ke zaroori styles de raha hoon */
+/* src/css/shop-merch.css - FINAL LAYOUT & STYLING */
 
+/* 1. Variables Overrides */
 :root {
-    --primary-color: #007185; 
-    --accent-color: #ff9900; 
+    --accent-color-shop: #ff9900; /* Orange for Merch buttons (Override global accent) */
+    --primary-shop-color: #007185; /* Specific Primary Color */
     --text-color: #111;
-    --light-grey: #f0f0f0;
     --card-bg: #fff;
+    --light-grey: #f0f0f0;
 }
 
 body {
     background-color: var(--light-grey);
 }
 
+/* 2. Main Container (FIXED: display: flex hataya) */
 .merch-container {
-    display: flex;
-    max-width: 1400px;
-    margin: 20px auto;
-    padding: 20px;
-    gap: 30px;
+    max-width: 1200px; 
+    margin: 40px auto; 
+    padding: 0 20px;
+    /* display: flex; <--- REMOVED */
 }
 
-.sidebar-filters {
-    width: 250px;
-    padding: 15px;
-    background: var(--card-bg);
-    border-radius: 8px;
-    height: fit-content;
-}
-
-/* Filter Button Styles (Jaisa tumne screenshot mein dikhaya tha) */
-#type-filters button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 8px;
-    border: 1px solid #ddd;
-    background: #fff;
-    cursor: pointer;
-    border-radius: 4px;
-    text-align: left;
-}
-#type-filters button.active {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-    font-weight: bold;
-}
-
-.product-grid {
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-/* Product Card Styles */
-.product-card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.product-card {
-    background: var(--card-bg);
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.product-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.card-info {
-    padding: 15px;
-    flex-grow: 1;
-}
-
-.product-price {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.card-actions {
-    display: flex;
-    gap: 10px;
-    padding: 15px;
-}
-
-.btn-primary, .btn-secondary {
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    flex: 1;
-}
-
-.btn-primary {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    border: 1px solid #ff8f00;
-}
-
-/* src/css/shop-merch.css */
-/* ... (existing styles) ... */
-
+/* 3. Search Bar */
 .search-bar {
-    grid-column: 1 / -1; /* Poori width le lo */
-    padding: 10px 0;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 30px; 
 }
-
 #search-input {
     width: 100%;
     padding: 12px;
@@ -125,130 +35,70 @@ body {
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* src/css/shop-merch.css aur src/css/shop-digital.css dono mein yeh CSS add/update karo */
-
-/* Main Container: Search bar ko poori width do */
-.merch-container, .digital-container {
-    display: flex; /* Flex is optional, par width ke liye theek hai */
-    flex-direction: column;
-    max-width: 1400px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-/* New Layout for Sidebar and Grid */
+/* 4. Sidebar and Grid Layout (From global.css, but customized) */
 .shop-layout {
-    display: flex;
+    display: flex; /* Sidebar aur Grid ko flex rakho */
     gap: 30px;
-    margin-top: 20px; /* Search bar se neeche space */
 }
 
-/* Sidebar & Grid styles ko shop-layout ke andar theek se set karo */
-.sidebar-filters {
-    /* ... (existing styles, width: 250px) ... */
-    width: 250px;
-    padding: 15px;
-    background: var(--card-bg);
-    border-radius: 8px;
-    height: fit-content;
+/* Filter Button Active State (Merch Specific Blue/Primary) */
+#type-filters button.active {
+    background: var(--primary-shop-color); /* Blue active color */
+    color: white;
+    border-color: var(--primary-shop-color);
+    font-weight: bold;
 }
 
-.product-grid {
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+/* Merch Button Colors */
+.btn-primary {
+    background-color: var(--accent-color-shop); /* Orange button */
+    color: var(--text-color);
+    border: 1px solid #ff8f00;
+}
+.btn-primary:hover {
+    background-color: #e68a00;
 }
 
-/* src/css/shop-merch.css and shop-digital.css */
-
-/* Product Card Styling */
+/* 5. Product Card Styles (Yahan bhi Card styles ko theek se rakhein, ya global mein daal dein) */
+/* Maine yahan basic styles de diye hain, jo digital.css mein bhi same hain */
 .product-card-link {
     text-decoration: none;
     color: inherit;
 }
-
 .product-card {
-    background: var(--text-light);
-    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
-    height: 100%; /* Ensures cards in a row are same height */
+    height: 100%; 
     display: flex;
     flex-direction: column;
 }
-
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
-
 .product-card img {
     width: 100%;
-    height: 200px; /* Fixed height for consistent image size */
+    height: 200px; 
     object-fit: cover;
     border-bottom: 1px solid #eee;
 }
-
 .card-info {
     padding: 15px;
     flex-grow: 1;
 }
-
-.card-info h3 {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-    color: var(--text-dark);
-}
-
 .product-price {
     font-size: 1.4em;
     font-weight: bold;
-    color: var(--primary-dark);
+    color: var(--primary-shop-color);
     margin-bottom: 10px;
 }
-
-.product-type {
-    font-size: 0.9em;
-    color: var(--secondary-color);
-}
-
 .card-actions {
     display: flex;
     gap: 10px;
     padding: 15px;
     border-top: 1px solid #eee;
 }
-
-.card-actions button {
-    flex: 1;
-    font-size: 0.9em;
-}
-
-/* Sidebar Filter Buttons */
-#type-filters button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 8px;
-    text-align: left;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: var(--text-dark);
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-#type-filters button:hover {
-    background-color: #f0f0f0;
-}
-
-#type-filters button.active {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border-color: var(--primary-dark);
-    font-weight: bold;
-}
-

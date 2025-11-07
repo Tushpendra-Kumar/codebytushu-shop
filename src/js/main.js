@@ -7,6 +7,8 @@ import { initMerchShop } from './filters.js'; // Merch page logic
 import { initDigitalShop } from './filters-digital.js'; // Digital page logic 
 
 
+// src/js/main.js - loadProductDetails function (FIXED)
+
 // Function: Product Detail Page (PDP) ko load karna
 async function loadProductDetails() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -31,22 +33,35 @@ async function loadProductDetails() {
             return;
         }
 
-        // HTML elements ko data se populate karna
+        // HTML elements ko data se populate karna - **SAFETY CHECKS ADDED**
         document.getElementById('product-title-tag').textContent = `${product.name} | CodeByTushu`;
         document.getElementById('product-name').textContent = product.name;
-        document.getElementById('main-product-image').src = product.image_url;
-        document.getElementById('main-product-image').alt = product.name;
-        document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+        
+        // --- VITAL FIX --- Line 77 par crash se bachne ke liye
+        const productImageElement = document.getElementById('main-product-image');
+        if (productImageElement && product.image_url) { // Check kiya ki element exist karta hai aur data mein URL hai
+            productImageElement.src = product.image_url;
+            productImageElement.alt = product.name;
+        }
+        // --- END VITAL FIX ---
+        
+        // document.getElementById('main-product-image').src = product.image_url; // Yeh line abhi delete kar dein
+        // document.getElementById('main-product-image').alt = product.name; // Yeh line abhi delete kar dein
+        
+        document.getElementById('product-price').textContent = `$${(product.price || 0).toFixed(2)}`;
         document.getElementById('product-description').textContent = product.description;
 
         const featuresList = document.getElementById('product-features');
         if (featuresList) {
-             featuresList.innerHTML = ''; // Pehle clear karo
-             product.tags.forEach(tag => {
-                const li = document.createElement('li');
-                li.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
-                featuresList.appendChild(li);
-            });
+             featuresList.innerHTML = ''; 
+             // Optional check for 'tags' array
+             if (Array.isArray(product.tags)) { 
+                 product.tags.forEach(tag => {
+                     const li = document.createElement('li');
+                     li.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+                     featuresList.appendChild(li);
+                 });
+             }
         }
         
         // Loading state hatana aur content dikhana
@@ -98,3 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartDisplay(); 
     }
 });
+
+// src/js/main.js
+const product = allProducts.find(p => p.id == productId);

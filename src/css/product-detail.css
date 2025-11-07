@@ -1,0 +1,108 @@
+/* src/css/product-detail.css - Product Detail Page Styling */
+
+/* 1. Main Container */
+.product-detail-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--text-light); /* White background */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+/* 2. Main Layout (Image + Info side-by-side) */
+.product-content {
+    display: flex; /* Image aur details ko side-by-side rakho */
+    gap: 40px;
+    padding-top: 20px; /* Thoda space */
+}
+
+/* 3. Product Image Section */
+.product-image-section {
+    flex: 0 0 45%; /* Image ko 45% width do */
+    max-width: 450px;
+}
+
+#main-product-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Product Info Section */
+.product-info-section {
+    flex: 1; /* Baki space info section ko do */
+}
+
+#product-name {
+    font-size: 2.2em;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+#product-price {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 15px 0;
+}
+
+#product-description {
+    margin-bottom: 30px;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* 5. Features List */
+.features-container h3 {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+#product-features {
+    list-style-type: none;
+    padding-left: 0;
+}
+#product-features li {
+    background: var(--background-light); /* Light background for features */
+    margin-bottom: 8px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+    font-size: 0.95em;
+}
+
+/* 6. Controls (Size Selector + Button) */
+.product-controls {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#size-selector {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 15px;
+    width: 150px;
+}
+
+#add-to-cart-btn {
+    /* Global .btn-primary styles ko use karega */
+    padding: 12px 25px;
+    font-size: 1.1em;
+}
+
+
+/* 7. Responsive adjustments */
+@media (max-width: 850px) {
+    .product-content {
+        flex-direction: column; /* Mobile par stack vertically */
+        gap: 20px;
+    }
+    .product-image-section {
+        max-width: 100%;
+        flex: auto;
+    }
+}
